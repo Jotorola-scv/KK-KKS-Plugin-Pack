@@ -32,7 +32,8 @@ Nothing in the game files or mod files is changed. When a part is set to one sid
 
 ## Limitations
 
-- **Items whose left and right halves are one connected mesh cannot be split.** Most pantyhose are joined at the waist, so they usually stay fully visible.
+- **Items whose left and right halves are one connected mesh cannot be split.** They stay fully visible.
+- **Pantyhose:** one-piece items (pantyhose joined at the waist, bodystockings and the like) are not hidden cleanly like socks and gloves. Setting the pantyhose to one side turns them into a plain left/right slice: the item is simply cut down the body's middle and one half is removed, waist or torso part included, instead of one leg being hidden.
 - Loading a clothing (coordinate) card does not carry these settings; they belong to the character card's outfit slots.
 - CharaStudio has no switch for accessory slots yet. Set accessories in the character maker; the saved setting applies in Studio.
 - Paired accessories are sorted into left/right when they load. If you move an accessory from one side to the other afterwards, it is re-sorted after the next reload (change the item or outfit, or reload the character).
@@ -118,7 +119,8 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder>` builds
 
 ### 限制
 
-- **左右連成一整塊網格的物件無法分開**。多數褲襪腰部是相連的，所以通常會整件顯示。
+- **左右連成一整塊網格的物件無法分開**，會整件顯示。
+- **褲襪：** 連身的物件（腰部相連的褲襪、連身襪等）不會像襪子和手套那樣正常隱藏單邊。褲襪設成單邊時，這類物件會變成單純的左右切片：沿著身體中線直接切掉一半，連腰部或軀幹部分也一起切掉，而不是只隱藏一條腿。
 - 讀取服裝卡不會帶上這些設定，設定屬於人物卡的各套服裝。
 - CharaStudio 目前沒有配件欄的切換，請在創角時設定，存檔後 Studio 會套用。
 - 成對配件的左右是在載入時判定的。之後若把配件從一側移到另一側，要等下次重新載入（換配件、換服裝或重新讀取人物）才會重新判定。
@@ -158,5 +160,5 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder>` builds
 
 - **キャラメイク**の各服装タブ（手袋・パンスト・靴下・靴）とアクセサリー画面に「片側」スイッチを追加します。設定は服装ごとにキャラカードへ保存され、**スタジオ**や本編にも反映されます。
 - アクセサリーは ClothesToAccessories の服装タイプ（手袋・パンスト・靴下・靴）と、通常の「腕」「脚」ペアアクセサリーに対応しています。
-- ゲームやMODのファイルは変更しません。実行時にメッシュのコピーを作り、片側の三角形だけを非表示にします。左右がつながった一枚のメッシュ（多くのパンストなど）は分けられません。
+- ゲームやMODのファイルは変更しません。実行時にメッシュのコピーを作り、片側の三角形だけを非表示にします。左右がつながった一枚のメッシュは分けられません。また、パンストでは一体型のアイテム（腰でつながったパンストや全身タイツなど）は靴下や手袋のようにきれいに片側だけ消えず、体の中心線で単純に左右半分に切られます（腰や胴の部分も含む）。
 - インストール：[Releases](../../releases) から `KK_SingleSideClothes.dll`（コイカツ）または `KKS_SingleSideClothes.dll`（サンシャイン）をダウンロードし、`BepInEx/plugins` に入れてください。
