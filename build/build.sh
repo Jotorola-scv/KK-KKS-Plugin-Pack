@@ -8,6 +8,7 @@
 #   sh build/build.sh ShaderSwapperNullFix KK  "D:/Games/Koikatsu"           -> bin/KK_ShaderSwapperNullFix.dll
 #   sh build/build.sh KKUTSClothesRedirect KKS "D:/Games/Koikatsu Sunshine"  -> bin/KKS_KKUTSClothesRedirect.dll
 #   sh build/build.sh KKUTSClothesRedirect KK  "D:/Games/Koikatsu"           -> bin/KK_KKUTSClothesCompat.dll
+#   sh build/build.sh StripTease2Timeline  KKS "D:/Games/Koikatsu Sunshine"  -> bin/KKS_StripTease2Timeline.dll
 #
 # The plugins that a project talks to must be installed in that game folder (see each plugin's README).
 # PseudoMakerExtras also references Single Side Clothes: bin/<KK|KKS>_SingleSideClothes.dll is used when it has been
@@ -84,8 +85,13 @@ KKUTSClothesRedirect)
         OUTNAME="KKUTSClothesCompat"
         SRC="$ROOT/KKUTSClothesRedirect/KKUTSClothesCompat.cs"
     fi ;;
+StripTease2Timeline)
+    # CharaStudio only. StripTease2 itself is reached through reflection, so it is not needed to compile.
+    set -- "$@" "-r:$G/BepInEx/core/0Harmony.dll"
+    [ "$GAMEKIND" = "KKS" ] && set -- "$@" "-r:$M/UnityEngine.IMGUIModule.dll"
+    SRC="$ROOT/StripTease2Timeline/StripTease2Timeline.cs" ;;
 *)
-    echo "unknown plugin: $PLUGIN (SingleSideClothes, PseudoMakerExtras, ShaderSwapperNullFix, KKUTSClothesRedirect)"; exit 1 ;;
+    echo "unknown plugin: $PLUGIN (SingleSideClothes, PseudoMakerExtras, ShaderSwapperNullFix, KKUTSClothesRedirect, StripTease2Timeline)"; exit 1 ;;
 esac
 
 mkdir -p "$ROOT/bin"

@@ -57,6 +57,10 @@
   .card.ssn { --accent: var(--teal); }
   .card.kku { --accent: var(--blue); }
 
+  .card.st2 { --accent: var(--amber); grid-column: 1 / -1; border-style: dashed; border-color: rgba(255,193,99,.45); }
+  .st2-body { display: grid; grid-template-columns: 1.05fr 1fr; gap: 36px; }
+  .st2-body ul { margin-top: 0; border-top: 0; padding-top: 4px; }
+  .badge.exp { background: transparent; color: var(--amber); border-color: var(--amber); font-weight: 700; }
   .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
   .num { font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: .12em; margin-bottom: 8px; }
   h2 { font-size: 34px; font-weight: 750; line-height: 1.15; }
@@ -175,6 +179,28 @@
         <li>KK: KKS-only KKUTSclothes → KKUTS when loading KKS cards<span class="zh">KK：讀取 KKS 卡片時把 KKUTSclothes 換回 KKUTS</span></li>
       </ul>
       <p class="note">Only useful when moving KKUTS outfits between games · 在兩個遊戲間搬移 KKUTS 服裝時才用得到</p>
+    </section>
+
+    <section class="card st2">
+      <div class="top">
+        <div><div class="num">05</div><h2>StripTease2 Timeline</h2></div>
+        <div class="ver">v0.5.0 experimental</div>
+      </div>
+      <div class="badges"><span class="badge exp">Experimental · unofficial · 實驗性・非官方</span><span class="badge">KK · KKS</span><span class="badge">CharaStudio</span><span class="badge">Needs StripTease2 (ziglo) + Timeline</span></div>
+      <div class="st2-body">
+        <div>
+          <p class="desc">Animate StripTease2 garment deformations in Timeline.</p>
+          <p class="desc zh">讓 StripTease2 的服裝變形可以在 Timeline 裡做動畫。</p>
+          <div class="warn"><b>Stopgap only.</b> ziglo has announced official Timeline support in a future StripTease2 version. Switch to it and remove this plugin once it is out.
+            <span class="zh"><b>僅供實驗性使用。</b>原作者 ziglo 已宣布未來的 StripTease2 會正式支援 Timeline，推出後請改用官方版本並移除本插件。</span></div>
+        </div>
+        <ul>
+          <li>Strip progress 0–100 per clothing slot<span class="zh">各部位的脫衣進度 0–100</span></li>
+          <li>Body mask Top / Bottom switched on keyframes<span class="zh">上身／下身身體遮罩依關鍵影格切換</span></li>
+          <li>Drop: garment falls to the ground (simple fall, not physics)<span class="zh">Drop：服裝掉落到地面（簡單掉落，非物理模擬）</span></li>
+          <li>Keeps edit sessions when switching garments · fixes vanishing garments<span class="zh">切換服裝時保留編輯狀態・修正服裝在某些角度消失</span></li>
+        </ul>
+      </div>
     </section>
   </div>
 

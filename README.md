@@ -1,6 +1,6 @@
 # KK/KKS Plugin Pack
 
-![KK/KKS Plugin Pack overview: the four plugins in English and Chinese](docs/KK-KKS-Plugin-Pack-overview.png)
+![KK/KKS Plugin Pack overview: the plugins in English and Chinese](docs/KK-KKS-Plugin-Pack-overview.png)
 
 BepInEx plugins for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)**. Every plugin is a separate dll: install only the ones you want.
 
@@ -14,8 +14,9 @@ BepInEx plugins for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)**. Every plu
 | [**Pseudo Maker Extras**](PseudoMakerExtras/README.md) | KK, KKS | CharaStudio | Adds maker settings that Studio Pseudo Maker lacks: ABMX bone sliders with *Split XYZ*, an accessory *Move* button, Fang / EditFangs sliders, Single Side Clothes switches and ClothingBlendShape sliders (with Timeline). | 1.3.0 **beta, testers wanted** |
 | [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md) | KK, KKS | Everywhere | *Optional fix.* Stops Shader Swapper from wiping an outfit's Material Editor textures after an accessory transfer. | 1.0.0 |
 | [**KKUTS Clothes Redirect / KKUTSclothes Compat**](KKUTSClothesRedirect/README.md) | KKS / KK | Everywhere | *Optional fix.* Makes KKUTS outfits look the same when they move between KK and KKS, without editing cards. | 1.0.0 / 1.1.0 |
+| [**StripTease2 Timeline**](StripTease2Timeline/README.md) | KK, KKS | CharaStudio | ***Experimental, unofficial.*** Animate StripTease2 (by ziglo) garment deformations in Timeline: strip progress, body mask and drop tracks. **ziglo has announced official Timeline support in a future StripTease2 version**; switch to that when it is released. | 0.5.0 **experimental** |
 
-The two *optional fixes* only matter if you run into the specific problem each one describes. The other plugins do not need them.
+The two *optional fixes* only matter if you run into the specific problem each one describes. The other plugins do not need them. **StripTease2 Timeline** is only a stopgap for experimenting until StripTease2 supports Timeline itself.
 
 ## Downloads
 
@@ -57,8 +58,9 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 | [**Pseudo Maker Extras**](PseudoMakerExtras/README.md#中文說明) | KK、KKS | CharaStudio | 在 Studio Pseudo Maker 補上創角有的項目：ABMX 骨骼滑桿（含 Split XYZ）、配件 Move 按鈕、八重齒／EditFangs 滑桿、Single Side Clothes 開關、ClothingBlendShape 滑桿（支援 Timeline）。 | 1.3.0 **測試版，歡迎協助測試** |
 | [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md#中文說明) | KK、KKS | 全部 | **選用修正。** 避免 Shader Swapper 在配件轉移後讓整套服裝的 Material Editor 貼圖消失。 | 1.0.0 |
 | [**KKUTS Clothes Redirect／KKUTSclothes Compat**](KKUTSClothesRedirect/README.md#中文說明) | KKS／KK | 全部 | **選用修正。** 讓使用 KKUTS 的服裝在 KK 和 KKS 之間搬移後看起來一樣，不必修改卡片。 | 1.0.0／1.1.0 |
+| [**StripTease2 Timeline**](StripTease2Timeline/README.md#中文說明) | KK、KKS | CharaStudio | ***實驗性、非官方。*** 讓 StripTease2（ziglo 製作）的服裝變形可以在 Timeline 做動畫：脫衣進度、身體遮罩、掉落軌道。**ziglo 已宣布未來的 StripTease2 會正式支援 Timeline**，推出後請改用官方版本。 | 0.5.0 **實驗性** |
 
-兩個**選用修正**只有在遇到它們各自說明的問題時才需要，其他插件不依賴它們。
+兩個**選用修正**只有在遇到它們各自說明的問題時才需要，其他插件不依賴它們。**StripTease2 Timeline** 只是在 StripTease2 正式支援 Timeline 之前、供實驗使用的過渡方案。
 
 **下載：** 到 [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) 下載。每個插件各有自己的 release，標籤為 `插件名-v版本`（Single Side Clothes 1.4.0 的標籤是 `v1.4.0`）。`KK_` 開頭的給戀活／Koikatsu Party，`KKS_` 開頭的給戀活 Sunshine，放進 `BepInEx/plugins`。
 
@@ -76,5 +78,6 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 - [**Pseudo Maker Extras**](PseudoMakerExtras/README.md#日本語の概要)（**ベータ版・テスター募集中**）：スタジオの Pseudo Maker に ABMX スライダー、アクセサリーの Move、八重歯／EditFangs、Single Side Clothes、ClothingBlendShape を追加。
 - [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md#日本語の概要)（任意の修正）：アクセサリー転送後に Material Editor のテクスチャが消える Shader Swapper の不具合を回避。
 - [**KKUTS Clothes Redirect／KKUTSclothes Compat**](KKUTSClothesRedirect/README.md#日本語の概要)（任意の修正）：KKUTS の服を KK と KKS の間で移しても同じ見た目にする。
+- [**StripTease2 Timeline**](StripTease2Timeline/README.md#日本語の概要)（**実験的・非公式**）：StripTease2（ziglo さん）の服の変形を Timeline でアニメーション。**StripTease2 は今後のバージョンで Timeline に正式対応予定**なので、それまでの実験用です。
 
 ダウンロードは [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) から。不具合や感想は [Issues](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/issues) へどうぞ。
