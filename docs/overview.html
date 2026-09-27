@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>KK/KKS Plugin Pack</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --panel: #171a23;
+    --panel-2: #1d2130;
+    --line: #2a2f40;
+    --text: #e8eaf1;
+    --muted: #9aa1b5;
+    --pink: #ff7eb6;
+    --blue: #6cb8ff;
+    --violet: #b39dff;
+    --teal: #4fd1b5;
+    --amber: #ffc163;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); }
+  body {
+    width: 1600px;
+    font-family: "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    color: var(--text);
+    padding: 56px 64px 44px;
+    background:
+      radial-gradient(900px 420px at 0% 0%, rgba(255,126,182,.10), transparent 70%),
+      radial-gradient(900px 420px at 100% 0%, rgba(108,184,255,.10), transparent 70%),
+      var(--bg);
+  }
+  .zh { font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+
+  header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; }
+  .eyebrow { font-size: 17px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  h1 { font-size: 64px; font-weight: 800; letter-spacing: -.01em; line-height: 1; }
+  h1 .slash { color: var(--pink); }
+  .tagline { margin-top: 14px; font-size: 22px; color: var(--muted); line-height: 1.45; }
+  .tagline b { color: var(--text); font-weight: 600; }
+  .install {
+    text-align: right; background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+    padding: 16px 22px; font-size: 17px; color: var(--muted); line-height: 1.6;
+  }
+  .install code {
+    font-family: "Cascadia Mono", Consolas, monospace; color: var(--text); background: var(--panel-2);
+    border-radius: 6px; padding: 2px 8px; font-size: 16px;
+  }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+  .card {
+    position: relative; background: linear-gradient(180deg, var(--panel-2), var(--panel));
+    border: 1px solid var(--line); border-radius: 22px; padding: 30px 32px 28px; overflow: hidden;
+  }
+  .card::before { content: ""; position: absolute; left: 0; top: 0; right: 0; height: 5px; background: var(--accent); }
+  .card.ssc { --accent: var(--pink); }
+  .card.pme { --accent: var(--violet); }
+  .card.ssn { --accent: var(--teal); }
+  .card.kku { --accent: var(--blue); }
+
+  .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .num { font-size: 15px; font-weight: 700; color: var(--accent); letter-spacing: .12em; margin-bottom: 8px; }
+  h2 { font-size: 34px; font-weight: 750; line-height: 1.15; }
+  h2 .zh { font-size: 26px; font-weight: 600; color: var(--muted); margin-left: 10px; }
+  .ver {
+    flex: none; font-size: 16px; font-weight: 700; padding: 7px 14px; border-radius: 999px;
+    border: 1px solid var(--accent); color: var(--accent); white-space: nowrap;
+  }
+  .badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 18px; }
+  .badge {
+    font-size: 15px; padding: 5px 12px; border-radius: 8px; background: rgba(255,255,255,.06);
+    color: var(--muted); border: 1px solid var(--line);
+  }
+  .badge.hot { background: var(--amber); color: #1b1406; border-color: var(--amber); font-weight: 700; }
+  .badge.opt { background: transparent; color: var(--teal); border-color: var(--teal); font-weight: 600; }
+  .card.kku .badge.opt { color: var(--blue); border-color: var(--blue); }
+
+  .desc { font-size: 21px; line-height: 1.5; }
+  .desc.zh { font-size: 20px; color: #c9cddb; margin-top: 6px; }
+  ul { list-style: none; margin-top: 20px; border-top: 1px solid var(--line); padding-top: 16px; display: grid; gap: 11px; }
+  li { display: grid; grid-template-columns: 18px 1fr; column-gap: 10px; font-size: 18px; line-height: 1.4; }
+  li::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); margin-top: 9px; }
+  li .zh { grid-column: 2; font-size: 16.5px; color: var(--muted); }
+  .note { margin-top: 18px; font-size: 16px; color: var(--muted); line-height: 1.5; }
+  .note b { color: var(--text); font-weight: 600; }
+
+  .warn {
+    margin-top: 18px; border: 1px solid var(--amber); background: rgba(255,193,99,.08); border-radius: 12px;
+    padding: 12px 16px; font-size: 17px; line-height: 1.5; color: var(--text);
+  }
+  .warn b { color: var(--amber); }
+  .warn .zh { display: block; font-size: 16px; color: #d9d2c2; }
+  footer {
+    margin-top: 32px; display: flex; justify-content: space-between; align-items: center;
+    font-size: 18px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 22px;
+  }
+  footer .url { color: var(--text); font-weight: 600; font-size: 21px; }
+  footer .url span { color: var(--pink); }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="eyebrow">BepInEx plugins · BepInEx 插件合集</div>
+      <h1>KK<span class="slash">/</span>KKS Plugin Pack</h1>
+      <p class="tagline">For <b>Koikatsu</b> &amp; <b>Koikatsu Sunshine</b>. Every plugin is a separate dll: install only what you need.<br>
+        <span class="zh">適用<b>戀活</b>與<b>戀活 Sunshine</b>。每個插件都是獨立的 dll，只裝需要的就好。</span></p>
+    </div>
+    <div class="install">
+      Install · 安裝<br>
+      <code>KK_*.dll</code> Koikatsu / Party　<code>KKS_*.dll</code> Sunshine<br>
+      → <code>BepInEx/plugins</code>
+    </div>
+  </header>
+
+  <div class="grid">
+    <section class="card ssc">
+      <div class="top">
+        <div><div class="num">01</div><h2>Single Side Clothes<span class="zh">單邊服裝</span></h2></div>
+        <div class="ver">v1.4.0</div>
+      </div>
+      <div class="badges"><span class="badge">KK · KKS</span><span class="badge">Maker 創角</span><span class="badge">CharaStudio</span><span class="badge">Main game 本篇</span></div>
+      <p class="desc">Show only the left or right piece of gloves, pantyhose, legwear, shoes and paired accessories. Set per outfit, saved in the character card.</p>
+      <p class="desc zh">手套、褲襪、襪子、鞋子與成對配件可以只顯示左邊或右邊，<br>依服裝設定並存進人物卡。</p>
+      <ul>
+        <li>Both / Left / Right switch in the clothing tabs and accessory window<span class="zh">創角服裝分頁與配件視窗的「雙邊／左／右」切換</span></li>
+        <li>Works with ClothesToAccessories and paired Arm / Leg accessories<span class="zh">支援 ClothesToAccessories 服裝配件與手臂／腳成對配件</span></li>
+        <li>Game and mod files are never modified<span class="zh">不修改任何遊戲檔與模組檔</span></li>
+      </ul>
+      <div class="warn"><b>Sharing cards?</b> The other person needs this plugin too, or both sides are shown.
+        <span class="zh"><b>分享人物卡時</b>，對方也要安裝本插件，否則會顯示左右兩邊。</span></div>
+      <p class="note">Based on an idea by <b>Nil</b> (KK_SingleShoe) · 構想來自 <b>Nil</b> 的 KK_SingleShoe</p>
+    </section>
+
+    <section class="card pme">
+      <div class="top">
+        <div><div class="num">02</div><h2>Pseudo Maker Extras</h2></div>
+        <div class="ver">v1.3.0 beta</div>
+      </div>
+      <div class="badges"><span class="badge">KK · KKS</span><span class="badge">CharaStudio</span><span class="badge hot">Testers wanted · 徵求測試</span></div>
+      <p class="desc">Adds maker settings that Studio Pseudo Maker lacks, so you can edit characters right in a scene.</p>
+      <p class="desc zh">在 Studio Pseudo Maker 補上創角才有的設定，直接在場景裡調整角色。</p>
+      <ul>
+        <li>ABMX bone sliders with Split XYZ and Side to edit<span class="zh">ABMX 骨骼滑桿，可分開 XYZ、左右分別調整</span></li>
+        <li>Accessory Move button next to Copy<span class="zh">配件 Transfer 分頁的 Move 按鈕</span></li>
+        <li>Fang switch + EditFangs length / spacing sliders<span class="zh">八重齒開關與 EditFangs 長度／間距滑桿</span></li>
+        <li>Single Side Clothes switches · ClothingBlendShape sliders with Timeline<span class="zh">單邊服裝開關 · ClothingBlendShape 滑桿（支援 Timeline）</span></li>
+      </ul>
+    </section>
+
+    <section class="card ssn">
+      <div class="top">
+        <div><div class="num">03</div><h2>Shader Swapper Null Fix</h2></div>
+        <div class="ver">v1.0.0</div>
+      </div>
+      <div class="badges"><span class="badge opt">Optional fix · 選用修正</span><span class="badge">KK · KKS</span><span class="badge">Maker · Studio · Game</span></div>
+      <p class="desc">Stops Shader Swapper from wiping an outfit's Material Editor textures after an accessory transfer.</p>
+      <p class="desc zh">避免 Shader Swapper 在配件轉移後，讓整套服裝的 Material Editor 貼圖消失。</p>
+      <ul>
+        <li>Skips Shader Swapper's hook only for objects that don't exist yet<span class="zh">只在物件尚未建立時跳過 Shader Swapper 的攔截</span></li>
+        <li>Everything else Shader Swapper does is unchanged<span class="zh">Shader Swapper 其他功能完全不變</span></li>
+      </ul>
+      <p class="note">Only needed if you run into this problem · 遇到這個問題時才需要</p>
+    </section>
+
+    <section class="card kku">
+      <div class="top">
+        <div><div class="num">04</div><h2>KKUTS Clothes Redirect</h2></div>
+        <div class="ver">v1.0.0 / v1.1.0</div>
+      </div>
+      <div class="badges"><span class="badge opt">Optional fix · 選用修正</span><span class="badge">KKS + KK (KKUTSclothes Compat)</span><span class="badge">Needs Material Editor</span></div>
+      <p class="desc">KKUTS outfits look the same after moving between KK and KKS, without editing cards.</p>
+      <p class="desc zh">使用 KKUTS 的服裝在 KK 與 KKS 之間搬移後外觀一致，不修改卡片。</p>
+      <ul>
+        <li>KKS: KKUTS → KKUTSclothes on everything except the body<span class="zh">KKS：身體以外改用服裝用的 KKUTSclothes</span></li>
+        <li>KK: KKS-only KKUTSclothes → KKUTS when loading KKS cards<span class="zh">KK：讀取 KKS 卡片時把 KKUTSclothes 換回 KKUTS</span></li>
+      </ul>
+      <p class="note">Only useful when moving KKUTS outfits between games · 在兩個遊戲間搬移 KKUTS 服裝時才用得到</p>
+    </section>
+  </div>
+
+  <footer>
+    <div class="url">github.com/Jotorola-scv/<span>KK-KKS-Plugin-Pack</span></div>
+    <div>Downloads → Releases · 下載請到 Releases　|　MIT License</div>
+  </footer>
+</body>
+</html>

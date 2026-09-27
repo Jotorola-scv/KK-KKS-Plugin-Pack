@@ -1,5 +1,7 @@
 # KK/KKS Plugin Pack
 
+![KK/KKS Plugin Pack overview: the four plugins in English and Chinese](docs/KK-KKS-Plugin-Pack-overview.png)
+
 BepInEx plugins for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)**. Every plugin is a separate dll: install only the ones you want.
 
 [中文說明在下方](#中文說明) · [日本語の概要](#日本語の概要)
