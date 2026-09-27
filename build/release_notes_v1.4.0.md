@@ -14,10 +14,15 @@ Put the dll in `BepInEx/plugins`. Requires BepInEx 5, KKAPI / KKSAPI and Extensi
 - *Single side* switch (Both / Left only / Right only) in the Gloves, Pantyhose, Legwear and Shoes tabs of the character maker, placed next to the Material Editor button
 - The same switch for ClothesToAccessories clothing accessories (gloves / pantyhose / socks / shoes) and for paired Arm / Leg accessories
 - CharaStudio: *Single side* dropdowns in the character state panel
-- Game files and mod files are never modified; items whose left and right halves are one connected mesh (e.g. most pantyhose) stay fully visible
+- Game files and mod files are never modified
 
-See the [README](https://github.com/Jotorola-scv/SingleSideClothes#readme) for details and limitations.
+**Good to know**
+- Items whose left and right halves are one connected mesh stay fully visible.
+- One-piece pantyhose (joined at the waist, bodystockings) don't hide one leg: set to one side, they are cut down the body's middle instead, waist or torso part included.
+- Shoes: different shoe models have different heel heights, so the main use is **mismatched colours** — hide one side of the main shoes and wear the **same model** in another colour from an accessory slot.
+
+See the [README](https://github.com/Jotorola-scv/SingleSideClothes#limitations) for details and all limitations.
 
 ---
 
-首次公開版本。構想來自 **Nil** 的 *KK_SingleShoe*，延伸到創角、更多服裝部位與配件。手套、褲襪、襪子、鞋子與成對配件可以只顯示左邊或右邊，在創角時依服裝設定並存在人物卡裡（CharaStudio 與本篇遊戲同樣套用）。詳見 [README](https://github.com/Jotorola-scv/SingleSideClothes#中文說明)。
+首次公開版本。構想來自 **Nil** 的 *KK_SingleShoe*，延伸到創角、更多服裝部位與配件。手套、褲襪、襪子、鞋子與成對配件可以只顯示左邊或右邊，在創角時依服裝設定並存在人物卡裡（CharaStudio 與本篇遊戲同樣套用）。連身款褲襪設成單邊時會沿身體中線切成一半，而不是只隱藏一條腿；鞋子因為各款高度不同，主要用來做同款異色鞋。詳見 [README](https://github.com/Jotorola-scv/SingleSideClothes#限制)。
