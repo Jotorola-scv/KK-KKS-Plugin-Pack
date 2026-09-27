@@ -8,6 +8,9 @@ Typical use: one glove on, one bare hand; a single sock; one shoe off; or hide o
 
 > **Based on an idea by Nil.** This plugin builds on **Nil**'s *KK_SingleShoe*, a CharaStudio plugin that hides the left or right shoe. Single Side Clothes takes that idea further: it works in the **character maker**, covers **gloves, pantyhose and legwear** as well as shoes, supports **accessories**, and saves the setting in the character card. It is an independent implementation and contains no code from KK_SingleShoe. Thanks to Nil for the original idea.
 
+> [!IMPORTANT]
+> **Sharing cards: the other person needs this plugin too.** The single-side setting is stored in the character card as plugin data. Anyone who opens the card, or a scene with the character, **without Single Side Clothes installed sees the clothes on both sides**. The setting is simply ignored; nothing breaks. When you share cards or scenes that use it, ask people to install this plugin.
+
 [中文說明在下方](#中文說明) · [日本語の概要](#日本語の概要)
 
 ## Features
@@ -98,6 +101,9 @@ The output goes to `bin/`.
 
 > **構想來自 Nil。** 本插件以 **Nil** 的 *KK_SingleShoe*（在 CharaStudio 中隱藏左鞋或右鞋的插件）為基礎延伸：改為在**創角**時就能設定，範圍從鞋子擴充到**手套、褲襪、襪子**，並支援**配件**，設定會存進人物卡。本插件是獨立實作，不包含 KK_SingleShoe 的程式碼。感謝 Nil 提供最初的構想。
 
+> [!IMPORTANT]
+> **分享人物卡時，對方也需要安裝這個插件。** 單邊設定是以插件資料的形式存在人物卡裡。對方**沒有安裝 Single Side Clothes 時，打開這張卡（或含有這個角色的場景）會看到服裝左右兩邊都顯示**。設定只是不生效，不會出錯。分享有用到單邊設定的人物卡或場景時，請提醒對方安裝本插件。
+
 ### 功能
 
 - **創角：** 手套、褲襪、襪子、鞋子分頁都有「單邊」切換（雙邊／僅左／僅右）。KK 的室內鞋和室外鞋分頁都有，兩者共用同一個設定。
@@ -163,6 +169,9 @@ The output goes to `bin/`.
 **Single Side Clothes** は、コイカツ（KK）／コイカツ・サンシャイン（KKS）用の BepInEx プラグインです。手袋・パンスト・靴下・靴、そして左右ペアのアクセサリーを、**左だけ／右だけ**表示にできます。
 
 **Nil** さんの *KK_SingleShoe*（スタジオで左右の靴を片方だけ表示するプラグイン）のアイデアを元に、キャラメイク・手袋／パンスト／靴下・アクセサリーへ拡張した独立実装です（KK_SingleShoe のコードは含みません）。
+
+> [!IMPORTANT]
+> **カードを配布する場合は、相手にもこのプラグインが必要です。** 片側の設定はプラグインのデータとしてキャラカードに保存されます。**Single Side Clothes が入っていない環境でカード（またはそのキャラを含むシーン）を開くと、服は左右とも表示されます。** 設定が無視されるだけで、エラーにはなりません。
 
 - **キャラメイク**の各服装タブ（手袋・パンスト・靴下・靴）とアクセサリー画面に「片側」スイッチを追加します。設定は服装ごとにキャラカードへ保存され、**スタジオ**や本編にも反映されます。
 - アクセサリーは ClothesToAccessories の服装タイプ（手袋・パンスト・靴下・靴）と、通常の「腕」「脚」ペアアクセサリーに対応しています。

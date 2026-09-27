@@ -8,7 +8,7 @@ BepInEx plugins for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)**. Every plu
 
 | Plugin | Games | Where | What it does | Status |
 |---|---|---|---|---|
-| [**Single Side Clothes**](SingleSideClothes/README.md) | KK, KKS | Maker, CharaStudio, main game | Show only the left or right piece of gloves, pantyhose, legwear, shoes and paired accessories, per outfit, saved in the character card. | 1.4.0 |
+| [**Single Side Clothes**](SingleSideClothes/README.md) | KK, KKS | Maker, CharaStudio, main game | Show only the left or right piece of gloves, pantyhose, legwear, shoes and paired accessories, per outfit, saved in the character card. **People you share cards with need the plugin too**, otherwise both sides show. | 1.4.0 |
 | [**Pseudo Maker Extras**](PseudoMakerExtras/README.md) | KK, KKS | CharaStudio | Adds maker settings that Studio Pseudo Maker lacks: ABMX bone sliders with *Split XYZ*, an accessory *Move* button, Fang / EditFangs sliders, Single Side Clothes switches and ClothingBlendShape sliders (with Timeline). | 1.3.0 **beta, testers wanted** |
 | [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md) | KK, KKS | Everywhere | *Optional fix.* Stops Shader Swapper from wiping an outfit's Material Editor textures after an accessory transfer. | 1.0.0 |
 | [**KKUTS Clothes Redirect / KKUTSclothes Compat**](KKUTSClothesRedirect/README.md) | KKS / KK | Everywhere | *Optional fix.* Makes KKUTS outfits look the same when they move between KK and KKS, without editing cards. | 1.0.0 / 1.1.0 |
@@ -51,7 +51,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 
 | 插件 | 遊戲 | 使用場合 | 功能 | 狀態 |
 |---|---|---|---|---|
-| [**Single Side Clothes**（單邊服裝）](SingleSideClothes/README.md#中文說明) | KK、KKS | 創角、CharaStudio、本篇 | 手套、褲襪、襪子、鞋子和成對配件可以只顯示左邊或右邊，依服裝設定並存在人物卡裡。 | 1.4.0 |
+| [**Single Side Clothes**（單邊服裝）](SingleSideClothes/README.md#中文說明) | KK、KKS | 創角、CharaStudio、本篇 | 手套、褲襪、襪子、鞋子和成對配件可以只顯示左邊或右邊，依服裝設定並存在人物卡裡。**分享人物卡時對方也要安裝**，否則會顯示雙邊。 | 1.4.0 |
 | [**Pseudo Maker Extras**](PseudoMakerExtras/README.md#中文說明) | KK、KKS | CharaStudio | 在 Studio Pseudo Maker 補上創角有的項目：ABMX 骨骼滑桿（含 Split XYZ）、配件 Move 按鈕、八重齒／EditFangs 滑桿、Single Side Clothes 開關、ClothingBlendShape 滑桿（支援 Timeline）。 | 1.3.0 **測試版，歡迎協助測試** |
 | [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md#中文說明) | KK、KKS | 全部 | **選用修正。** 避免 Shader Swapper 在配件轉移後讓整套服裝的 Material Editor 貼圖消失。 | 1.0.0 |
 | [**KKUTS Clothes Redirect／KKUTSclothes Compat**](KKUTSClothesRedirect/README.md#中文說明) | KKS／KK | 全部 | **選用修正。** 讓使用 KKUTS 的服裝在 KK 和 KKS 之間搬移後看起來一樣，不必修改卡片。 | 1.0.0／1.1.0 |
@@ -70,7 +70,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 
 **KK/KKS Plugin Pack** は、コイカツ（KK）／コイカツ・サンシャイン（KKS）用 BepInEx プラグイン集です。プラグインはそれぞれ独立した dll なので、必要なものだけ入れてください。
 
-- [**Single Side Clothes**](SingleSideClothes/README.md#日本語の概要)：手袋・パンスト・靴下・靴・ペアアクセサリーを左右片側だけ表示（キャラメイクで設定、カードに保存）。
+- [**Single Side Clothes**](SingleSideClothes/README.md#日本語の概要)：手袋・パンスト・靴下・靴・ペアアクセサリーを左右片側だけ表示（キャラメイクで設定、カードに保存）。カードを受け取る側にもプラグインが必要です。
 - [**Pseudo Maker Extras**](PseudoMakerExtras/README.md#日本語の概要)（**ベータ版・テスター募集中**）：スタジオの Pseudo Maker に ABMX スライダー、アクセサリーの Move、八重歯／EditFangs、Single Side Clothes、ClothingBlendShape を追加。
 - [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md#日本語の概要)（任意の修正）：アクセサリー転送後に Material Editor のテクスチャが消える Shader Swapper の不具合を回避。
 - [**KKUTS Clothes Redirect／KKUTSclothes Compat**](KKUTSClothesRedirect/README.md#日本語の概要)（任意の修正）：KKUTS の服を KK と KKS の間で移しても同じ見た目にする。
