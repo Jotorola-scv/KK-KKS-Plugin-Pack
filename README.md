@@ -45,7 +45,7 @@ Nothing in the game files or mod files is changed. When a part is set to one sid
 
 - Koikatsu / Koikatsu Party and Koikatsu Sunshine, with BepInEx 5, KKAPI / KKSAPI and ExtensibleSaveFormat (all included in HF Patch / BetterRepack).
 - Optional: Material Editor (button placement), ClothesToAccessories (clothing accessories), MoreAccessories.
-- Tested in game by the maintainer: the clothing switches for gloves, pantyhose, legwear and shoes, and their placement next to Material Editor.
+- Tested in game by the maintainer: the clothing switches for gloves, pantyhose, legwear and shoes, the accessory switches (ClothesToAccessories clothing and paired Arm/Leg accessories), CharaStudio, and the placement next to Material Editor. No problems found so far. Wider use will tell more, so feedback is welcome (see [Reporting problems](#reporting-problems)).
 
 ## Installation
 
@@ -137,6 +137,8 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder>` builds
 
 需要 BepInEx 5、KKAPI／KKSAPI、ExtensibleSaveFormat（HF Patch／BetterRepack 都已內含）。解除安裝時刪除 dll 即可。
 
+維護者已在遊戲內測試過：手套、褲襪、襪子、鞋子的服裝開關，配件開關（ClothesToAccessories 服裝配件和手臂／腳成對配件），CharaStudio，以及放在 Material Editor 旁的位置。目前沒有發現問題，但還需要更多玩家實際使用才能知道更多，歡迎回報使用心得（見[回報問題](#回報問題)）。
+
 ### 設定
 
 `BepInEx/config/jotorola.singlesideclothes.cfg` 的 `[Maker] Control position`：`AboveMaterialEditor`（預設，放在 Material Editor 按鈕上方）、`BelowMaterialEditor`（下方）、`Bottom`（最底下）。
@@ -165,3 +167,4 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder>` builds
 - ゲームやMODのファイルは変更しません。実行時にメッシュのコピーを作り、片側の三角形だけを非表示にします。左右がつながった一枚のメッシュは分けられません。また、パンストでは一体型のアイテム（腰でつながったパンストや全身タイツなど）は靴下や手袋のようにきれいに片側だけ消えず、体の中心線で単純に左右半分に切られます（腰や胴の部分も含む）。
 - 靴はモデルごとにヒールの高さが違い、異なるハイヒール同士の高低差は合わせられません。靴での主な用途は**左右色違い**です（メインの靴を片側だけ消し、アクセサリー枠で**同じモデル**の別カラーを履かせる）。
 - インストール：[Releases](../../releases) から `KK_SingleSideClothes.dll`（コイカツ）または `KKS_SingleSideClothes.dll`（サンシャイン）をダウンロードし、`BepInEx/plugins` に入れてください。
+- 作者がゲーム内で全機能（服装・アクセサリーのスイッチ、スタジオ、Material Editor 横の配置）をテスト済みで、今のところ問題は見つかっていません。不具合や感想は [Issues](../../issues) へどうぞ。
