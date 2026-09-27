@@ -3,7 +3,8 @@
 //
 // Each connected piece (island) of a clothing mesh is assigned to the character's left or right side from the skin
 // weights it puts on *_L / *_R limb bones; rigid paired accessories use the island position relative to the body.
-// Pieces that cannot be assigned (e.g. pantyhose joined at the waist) stay visible. The mesh asset is never
+// Pieces that cannot be assigned stay visible. One-piece pantyhose (joined at the waist, bodystockings) do not
+// hide one leg: they come out as a plain left/right slice down the body's middle. The mesh asset is never
 // modified: the renderer gets a runtime copy whose triangle lists are filtered.
 //
 // The idea of hiding one side of a clothing item comes from Nil's KK_SingleShoe (a Studio-only shoe plugin);

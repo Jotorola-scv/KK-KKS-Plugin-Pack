@@ -2,7 +2,7 @@
 
 A BepInEx plugin for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)** that shows only the **left or the right piece** of gloves, pantyhose, legwear, shoes and paired accessories — set **per outfit** in the **character maker**, and kept in the character card so it also applies in **CharaStudio** and the main game.
 
-Typical use: one glove on, one bare hand; a single sock; one shoe off; or hide one side of the main gloves and fill it with a different glove from an accessory slot.
+Typical use: one glove on, one bare hand; a single sock; one shoe off; or hide one side of the main gloves and fill it with a different glove from an accessory slot. For shoes, the main use is mismatched colours (see [Limitations](#limitations)).
 
 > **Based on an idea by Nil.** This plugin builds on **Nil**'s *KK_SingleShoe*, a CharaStudio plugin that hides the left or right shoe. Single Side Clothes takes that idea further: it works in the **character maker**, covers **gloves, pantyhose and legwear** as well as shoes, supports **accessories**, and saves the setting in the character card. It is an independent implementation and contains no code from KK_SingleShoe. Thanks to Nil for the original idea.
 
@@ -34,6 +34,7 @@ Nothing in the game files or mod files is changed. When a part is set to one sid
 
 - **Items whose left and right halves are one connected mesh cannot be split.** They stay fully visible.
 - **Pantyhose:** one-piece items (pantyhose joined at the waist, bodystockings and the like) are not hidden cleanly like socks and gloves. Setting the pantyhose to one side turns them into a plain left/right slice: the item is simply cut down the body's middle and one half is removed, waist or torso part included, instead of one leg being hidden.
+- **Shoes:** every shoe model has its own heel height, and the height difference between two different high-heel models cannot be matched. For shoes the plugin is therefore mainly useful for **mismatched colours**: hide one side of the main shoes and wear the **same model** in another colour from an accessory slot. Mixing two different shoe models leaves one foot at the wrong height.
 - Loading a clothing (coordinate) card does not carry these settings; they belong to the character card's outfit slots.
 - CharaStudio has no switch for accessory slots yet. Set accessories in the character maker; the saved setting applies in Studio.
 - Paired accessories are sorted into left/right when they load. If you move an accessory from one side to the other afterwards, it is re-sorted after the next reload (change the item or outfit, or reload the character).
@@ -91,7 +92,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder>` builds
 
 **Single Side Clothes（單邊服裝）** 是戀活（KK）與戀活 Sunshine（KKS）的 BepInEx 插件：手套、褲襪、襪子、鞋子和成對的配件，可以設定**只顯示左邊或只顯示右邊**。在**創角**時依服裝分別設定，存在人物卡裡，**CharaStudio** 和本篇遊戲也會套用。
 
-常見用法：只戴一隻手套；只穿一隻襪子；脫掉一隻鞋；或是把主服裝的手套隱藏一邊，再用配件欄的另一款手套補上。
+常見用法：只戴一隻手套；只穿一隻襪子；脫掉一隻鞋；或是把主服裝的手套隱藏一邊，再用配件欄的另一款手套補上。鞋子的主要用途是做異色鞋（見[限制](#限制)）。
 
 > **構想來自 Nil。** 本插件以 **Nil** 的 *KK_SingleShoe*（在 CharaStudio 中隱藏左鞋或右鞋的插件）為基礎延伸：改為在**創角**時就能設定，範圍從鞋子擴充到**手套、褲襪、襪子**，並支援**配件**，設定會存進人物卡。本插件是獨立實作，不包含 KK_SingleShoe 的程式碼。感謝 Nil 提供最初的構想。
 
@@ -121,6 +122,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder>` builds
 
 - **左右連成一整塊網格的物件無法分開**，會整件顯示。
 - **褲襪：** 連身的物件（腰部相連的褲襪、連身襪等）不會像襪子和手套那樣正常隱藏單邊。褲襪設成單邊時，這類物件會變成單純的左右切片：沿著身體中線直接切掉一半，連腰部或軀幹部分也一起切掉，而不是只隱藏一條腿。
+- **鞋子：** 每款鞋子的高度都不同，不同模型的高跟鞋之間的高低差無法互相適配。所以這個插件在鞋子上的主要作用是方便製作**異色鞋**：把主服裝的鞋子隱藏一邊，再用配件欄穿上**同一款**但不同顏色的鞋子。混搭兩款不同的鞋子，會有一隻腳的高度不對。
 - 讀取服裝卡不會帶上這些設定，設定屬於人物卡的各套服裝。
 - CharaStudio 目前沒有配件欄的切換，請在創角時設定，存檔後 Studio 會套用。
 - 成對配件的左右是在載入時判定的。之後若把配件從一側移到另一側，要等下次重新載入（換配件、換服裝或重新讀取人物）才會重新判定。
@@ -161,4 +163,5 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder>` builds
 - **キャラメイク**の各服装タブ（手袋・パンスト・靴下・靴）とアクセサリー画面に「片側」スイッチを追加します。設定は服装ごとにキャラカードへ保存され、**スタジオ**や本編にも反映されます。
 - アクセサリーは ClothesToAccessories の服装タイプ（手袋・パンスト・靴下・靴）と、通常の「腕」「脚」ペアアクセサリーに対応しています。
 - ゲームやMODのファイルは変更しません。実行時にメッシュのコピーを作り、片側の三角形だけを非表示にします。左右がつながった一枚のメッシュは分けられません。また、パンストでは一体型のアイテム（腰でつながったパンストや全身タイツなど）は靴下や手袋のようにきれいに片側だけ消えず、体の中心線で単純に左右半分に切られます（腰や胴の部分も含む）。
+- 靴はモデルごとにヒールの高さが違い、異なるハイヒール同士の高低差は合わせられません。靴での主な用途は**左右色違い**です（メインの靴を片側だけ消し、アクセサリー枠で**同じモデル**の別カラーを履かせる）。
 - インストール：[Releases](../../releases) から `KK_SingleSideClothes.dll`（コイカツ）または `KKS_SingleSideClothes.dll`（サンシャイン）をダウンロードし、`BepInEx/plugins` に入れてください。
