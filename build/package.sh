@@ -9,7 +9,6 @@
 #   dist/KK_PseudoMakerExtras.dll      dist/KKS_PseudoMakerExtras.dll
 #   dist/KK_ShaderSwapperNullFix.dll   dist/KKS_ShaderSwapperNullFix.dll
 #   dist/KK_KKUTSClothesCompat.dll     dist/KKS_KKUTSClothesRedirect.dll
-#   dist/KK_StripTease2Timeline.dll    dist/KKS_StripTease2Timeline.dll
 #   dist/KK_KKPECanineLink.dll         dist/KKS_KKPECanineLink.dll
 #   dist/KK_EditFangsHeadFix.dll       dist/KKS_EditFangsHeadFix.dll
 #
@@ -26,7 +25,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 B="$ROOT/build/build.sh"
 
 # Single Side Clothes first: Pseudo Maker Extras references the freshly built dll.
-for P in SingleSideClothes ShaderSwapperNullFix KKUTSClothesRedirect StripTease2Timeline KKPECanineLink EditFangsHeadFix; do
+for P in SingleSideClothes ShaderSwapperNullFix KKUTSClothesRedirect KKPECanineLink EditFangsHeadFix; do
     sh "$B" "$P" KK "$KK_DIR"
     sh "$B" "$P" KKS "$KKS_DIR"
 done
