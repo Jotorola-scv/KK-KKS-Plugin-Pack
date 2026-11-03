@@ -18,7 +18,7 @@ Right before EditFangs adjusts the fang, the plugin makes it read the vertices f
 
 ## Installation
 
-Download `KK_EditFangsHeadFix.dll` (Koikatsu / Koikatsu Party) or `KKS_EditFangsHeadFix.dll` (Koikatsu Sunshine) from [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) and put it in `BepInEx/plugins`. Requires BepInEx 5 and EditFangs (tested with KKS_EditFangs 1.1.1 and KK_EditFangs 1.1.2). Delete the dll to uninstall. It can be removed once EditFangs fixes this itself.
+Download `KK_CanineLink.rar` (Koikatsu / Koikatsu Party) or `KKS_CanineLink.rar` (Koikatsu Sunshine) from [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases/tag/KKPECanineLink-v1.0.1) and extract it into `BepInEx/plugins`. The archive also contains [KKPE Canine Link](../KKPECanineLink/README.md). Requires BepInEx 5 and EditFangs (tested with KKS_EditFangs 1.1.1 and KK_EditFangs 1.1.2). Without EditFangs this dll does not load and BepInEx notes that in its log. Delete `KK_EditFangsHeadFix.dll` or `KKS_EditFangsHeadFix.dll` to uninstall. It can be removed once EditFangs fixes this itself.
 
 ## Tested in game
 
@@ -48,7 +48,7 @@ Download `KK_EditFangsHeadFix.dll` (Koikatsu / Koikatsu Party) or `KKS_EditFangs
 
 **八重齒很長不一定是這個問題。** Fang Length 只移動尖端那一個頂點，數值高時本來就會變成又長又尖，但左右應該一樣。
 
-**安裝：** 從 [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) 下載 `KK_EditFangsHeadFix.dll`（戀活）或 `KKS_EditFangsHeadFix.dll`（戀活 Sunshine），放進 `BepInEx/plugins`。需要 BepInEx 5 和 EditFangs（測試版本 KKS_EditFangs 1.1.1、KK_EditFangs 1.1.2）。刪除 dll 即可解除安裝；等 EditFangs 本身修好後就可以移除。
+**安裝：** 從 [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases/tag/KKPECanineLink-v1.0.1) 下載 `KK_CanineLink.rar`（戀活）或 `KKS_CanineLink.rar`（戀活 Sunshine），解壓縮到 `BepInEx/plugins`。壓縮檔裡也包含 [KKPE Canine Link](../KKPECanineLink/README.md#中文說明)。需要 BepInEx 5 和 EditFangs（測試版本 KKS_EditFangs 1.1.1、KK_EditFangs 1.1.2）；沒有 EditFangs 時這個 dll 不會載入，BepInEx 會在 log 裡註明。刪除 `KK_EditFangsHeadFix.dll` 或 `KKS_EditFangsHeadFix.dll` 即可解除安裝；等 EditFangs 本身修好後就可以移除。
 
 **遊戲內測試：** KKS 已用 1.0.1 在 CharaStudio 的 Head Mod2 上確認修正有效。KK 的這三顆頭頂點順序和原版相同，所以沒有重現這個外觀問題。1.0.2 修正了 KK log 裡的警告（有些頭最低的兩個八重齒頂點高度不完全相同，EditFangs 會出錯），在兩款遊戲的 CharaStudio 裡都沒有再出現警告。
 
@@ -56,4 +56,4 @@ Download `KK_EditFangsHeadFix.dll` (Koikatsu / Koikatsu Party) or `KKS_EditFangs
 
 ## 日本語の概要
 
-**任意**：EditFangs を使っていて、MOD の頭の八重歯がメーカー以外で崩れる場合だけ必要です。EditFangs はカードの頭が読み込まれる前に八重歯の頂点を記憶し、メーカーでしか読み直しません。そのため CharaStudio などでは、純正の頭の頂点が MOD の頭に書き込まれ、八重歯が細長く左右非対称になります。このプラグインは、調整の直前に実際の頭から頂点を読み直させます。カードの設定は変わりません。[Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) から dll をダウンロードし、`BepInEx/plugins` に入れてください。
+**任意**：EditFangs を使っていて、MOD の頭の八重歯がメーカー以外で崩れる場合だけ必要です。EditFangs はカードの頭が読み込まれる前に八重歯の頂点を記憶し、メーカーでしか読み直しません。そのため CharaStudio などでは、純正の頭の頂点が MOD の頭に書き込まれ、八重歯が細長く左右非対称になります。このプラグインは、調整の直前に実際の頭から頂点を読み直させます。カードの設定は変わりません。[Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases/tag/KKPECanineLink-v1.0.1) から `KK_CanineLink.rar` または `KKS_CanineLink.rar` をダウンロードし、`BepInEx/plugins` に展開してください（KKPE Canine Link も同梱）。

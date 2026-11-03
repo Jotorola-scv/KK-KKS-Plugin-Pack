@@ -12,6 +12,9 @@
 #   dist/KK_KKPECanineLink.dll         dist/KKS_KKPECanineLink.dll
 #   dist/KK_EditFangsHeadFix.dll       dist/KKS_EditFangsHeadFix.dll
 #
+# KKPE Canine Link and EditFangs Head Fix are released together: pack each game's two dlls by hand, without folders, as
+# KK_CanineLink.rar and KKS_CanineLink.rar.
+#
 # READMEs and LICENSE live on the repository page; source code archives are attached to GitHub releases
 # automatically from the tag.
 set -e

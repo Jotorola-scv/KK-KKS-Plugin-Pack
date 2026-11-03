@@ -2,7 +2,7 @@
 
 ![KK/KKS Plugin Pack overview: the plugins in English and Chinese](docs/KK-KKS-Plugin-Pack-overview.png)
 
-BepInEx plugins for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)**. Every plugin is a separate dll: install only the ones you want.
+BepInEx plugins for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)**. Every plugin is a separate dll: install only the ones you want. KKPE Canine Link and EditFangs Head Fix are downloaded together.
 
 [中文說明在下方](#中文說明) · [日本語の概要](#日本語の概要)
 
@@ -22,6 +22,8 @@ The *optional fixes* only matter if you run into the specific problem each one d
 ## Downloads
 
 Get the dlls from [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases). Each plugin has its own release, tagged `<Plugin>-v<version>`. Single Side Clothes 1.4.0 is tagged `v1.4.0`. Files starting with `KK_` are for Koikatsu / Koikatsu Party, files starting with `KKS_` are for Koikatsu Sunshine. Put them in `BepInEx/plugins`.
+
+KKPE Canine Link and EditFangs Head Fix share [one release](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases/tag/KKPECanineLink-v1.0.1): extract `KK_CanineLink.rar` or `KKS_CanineLink.rar` into `BepInEx/plugins`.
 
 ## Reporting problems
 
@@ -51,7 +53,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 
 ## 中文說明
 
-**KK/KKS Plugin Pack** 是戀活（KK）與戀活 Sunshine（KKS）的 BepInEx 插件合集。每個插件都是獨立的 dll，只裝需要的就好。
+**KK/KKS Plugin Pack** 是戀活（KK）與戀活 Sunshine（KKS）的 BepInEx 插件合集。每個插件都是獨立的 dll，只裝需要的就好。KKPE Canine Link 和 EditFangs Head Fix 是一起下載的。
 
 | 插件 | 遊戲 | 使用場合 | 功能 | 狀態 |
 |---|---|---|---|---|
@@ -64,7 +66,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 
 這些**選用修正**只有在遇到它們各自說明的問題時才需要，其他插件不依賴它們。
 
-**下載：** 到 [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) 下載。每個插件各有自己的 release，標籤為 `插件名-v版本`（Single Side Clothes 1.4.0 的標籤是 `v1.4.0`）。`KK_` 開頭的給戀活／Koikatsu Party，`KKS_` 開頭的給戀活 Sunshine，放進 `BepInEx/plugins`。
+**下載：** 到 [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) 下載。每個插件各有自己的 release，標籤為 `插件名-v版本`（Single Side Clothes 1.4.0 的標籤是 `v1.4.0`）。`KK_` 開頭的給戀活／Koikatsu Party，`KKS_` 開頭的給戀活 Sunshine，放進 `BepInEx/plugins`。KKPE Canine Link 和 EditFangs Head Fix 共用[同一個 release](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases/tag/KKPECanineLink-v1.0.1)：把 `KK_CanineLink.rar` 或 `KKS_CanineLink.rar` 解壓縮到 `BepInEx/plugins`。
 
 **回報問題：** 請到 [Issues](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/issues)，註明是哪個插件、哪個遊戲。各插件的說明裡有列出需要附上的資訊。
 
@@ -74,7 +76,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 
 ## 日本語の概要
 
-**KK/KKS Plugin Pack** は、コイカツ（KK）／コイカツ・サンシャイン（KKS）用 BepInEx プラグイン集です。プラグインはそれぞれ独立した dll なので、必要なものだけ入れてください。
+**KK/KKS Plugin Pack** は、コイカツ（KK）／コイカツ・サンシャイン（KKS）用 BepInEx プラグイン集です。プラグインはそれぞれ独立した dll なので、必要なものだけ入れてください。KKPE Canine Link と EditFangs Head Fix は一緒にダウンロードします。
 
 - [**Single Side Clothes**](SingleSideClothes/README.md#日本語の概要)：手袋・パンスト・靴下・靴・ペアアクセサリーを左右片側だけ表示（キャラメイクで設定、カードに保存）。カードを受け取る側にもプラグインが必要です。
 - [**Pseudo Maker Extras**](PseudoMakerExtras/README.md#日本語の概要)（**ベータ版・テスター募集中**）：スタジオの Pseudo Maker に ABMX スライダー、アクセサリーの Move、八重歯／EditFangs、Single Side Clothes、ClothingBlendShape を追加。
