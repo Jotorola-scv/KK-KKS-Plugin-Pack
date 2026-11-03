@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>KKPE Canine Link</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --panel: #171a23;
+    --panel-2: #1d2130;
+    --line: #2a2f40;
+    --text: #e8eaf1;
+    --muted: #9aa1b5;
+    --pink: #ff7eb6;
+    --blue: #6cb8ff;
+    --teal: #4fd1b5;
+    --red: #ff6b6b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); }
+  body {
+    width: 1600px;
+    font-family: "Segoe UI", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    color: var(--text);
+    padding: 56px 64px 44px;
+    background:
+      radial-gradient(900px 420px at 0% 0%, rgba(255,126,182,.10), transparent 70%),
+      radial-gradient(900px 420px at 100% 0%, rgba(108,184,255,.10), transparent 70%),
+      var(--bg);
+  }
+  .eyebrow { font-size: 17px; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  h1 { font-size: 64px; font-weight: 800; letter-spacing: -.01em; line-height: 1; }
+  .tagline { margin-top: 14px; font-size: 25px; font-weight: 600; line-height: 1.4; }
+  .tagline span { display: block; color: var(--muted); font-weight: 400; font-size: 22px; }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 36px; }
+  .shot { border: 1px solid var(--line); border-radius: 22px; overflow: hidden; background: var(--panel); }
+  .shot.off { --accent: var(--red); }
+  .shot.on { --accent: var(--teal); }
+  .shot-head { display: flex; align-items: baseline; gap: 14px; padding: 20px 28px; border-top: 5px solid var(--accent); }
+  .shot-head b { font-size: 34px; font-weight: 800; color: var(--accent); }
+  .shot-head span { font-size: 24px; color: var(--muted); }
+  .shot img.mouth { display: block; width: 100%; }
+  .toggle { display: block; width: 100%; border-top: 1px solid var(--line); }
+  .caption { padding: 22px 28px 26px; font-size: 21px; line-height: 1.45; }
+  .caption span { display: block; margin-top: 6px; color: var(--muted); font-size: 19px; }
+
+  .notes { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 26px; margin-top: 26px; }
+  .note { background: linear-gradient(180deg, var(--panel-2), var(--panel)); border: 1px solid var(--line); border-radius: 22px; padding: 26px 28px; }
+  .note h2 { font-size: 24px; font-weight: 700; margin-bottom: 14px; color: var(--blue); }
+  .note h2 small { font-size: 20px; font-weight: 500; color: var(--muted); margin-left: 6px; }
+  .note p { font-size: 20px; line-height: 1.5; }
+  .note p + p { margin-top: 10px; color: var(--muted); font-size: 18px; }
+
+  footer { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; font-size: 19px; color: var(--muted); }
+  .url { font-family: "Cascadia Mono", Consolas, monospace; font-size: 20px; }
+  .url span { color: var(--pink); }
+</style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">KK / KKS · CharaStudio · KKPE</div>
+    <h1>KKPE Canine Link</h1>
+    <div class="tagline">Fangs that stay on the teeth in KKPE and Timeline expressions.
+      <span>讓八重齒在 KKPE 和 Timeline 的表情裡緊貼牙齒。</span></div>
+  </header>
+
+  <section class="compare">
+    <div class="shot off">
+      <div class="shot-head"><b>Before</b><span>修正前</span></div>
+      <img class="mouth" src="before.png" alt="">
+      <img class="toggle" src="before-toggle.png" alt="">
+      <div class="caption">The teeth take the new expression, but the fangs stay on the old mouth shape and hang away from them.
+        <span>牙齒換了新表情，八重齒還停在舊嘴型，和牙齒分開。</span></div>
+    </div>
+    <div class="shot on">
+      <div class="shot-head"><b>After</b><span>修正後</span></div>
+      <img class="mouth" src="after.png" alt="">
+      <img class="toggle" src="after-toggle.png" alt="">
+      <div class="caption">Same scene and expression. The fangs follow the teeth and sit where they belong.
+        <span>同一個場景和表情，八重齒跟著牙齒，回到該在的位置。</span></div>
+    </div>
+  </section>
+
+  <section class="notes">
+    <div class="note">
+      <h2>Why it happens <small>原因</small></h2>
+      <p>KKPE overrides each mouth mesh separately, and its link option only covers the eyes.</p>
+      <p>KKPE 分開覆寫每個嘴部網格，連動選項只涵蓋眼部。</p>
+    </div>
+    <div class="note">
+      <h2>What it does <small>做法</small></h2>
+      <p>While Teeth is overridden, it copies the teeth weights onto the fangs every frame.</p>
+      <p>Teeth 被覆寫時，每幀把牙齒的權重複製給八重齒。</p>
+    </div>
+    <div class="note">
+      <h2>Safe to try <small>放心試用</small></h2>
+      <p>No new keyframes. Nothing saved in your scene. A manual Canines edit always wins.</p>
+      <p>不用補關鍵影格，也不寫入場景。手動調整 Canines 時以你的設定為準。</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="url">github.com/Jotorola-scv/<span>KK-KKS-Plugin-Pack</span></div>
+    <div>Downloads → Releases · 下載請到 Releases　|　MIT License</div>
+  </footer>
+</body>
+</html>
