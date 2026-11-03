@@ -15,7 +15,7 @@ BepInEx plugins for **Koikatsu (KK)** and **Koikatsu Sunshine (KKS)**. Every plu
 | [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md) | KK, KKS | Everywhere | *Optional fix.* Stops Shader Swapper from wiping an outfit's Material Editor textures after an accessory transfer. | 1.0.0 |
 | [**KKUTS Clothes Redirect / KKUTSclothes Compat**](KKUTSClothesRedirect/README.md) | KKS / KK | Everywhere | *Optional fix.* Makes KKUTS outfits look the same when they move between KK and KKS, without editing cards. | 1.0.0 / 1.1.0 |
 | [**StripTease2 Timeline**](StripTease2Timeline/README.md) | KK, KKS | CharaStudio | ***Experimental, unofficial.*** Animate StripTease2 (by ziglo) garment deformations in Timeline: strip progress, body mask and drop tracks. **ziglo has announced official Timeline support in a future StripTease2 version**; switch to that when it is released. | 0.5.0 **experimental** |
-| [**KKPE Canine Link**](KKPECanineLink/README.md) | KK, KKS | CharaStudio | *Optional fix.* Keeps fangs on the teeth when the mouth is edited with KKPE blendshapes or Timeline. | 1.0.0 |
+| [**KKPE Canine Link**](KKPECanineLink/README.md) | KK, KKS | CharaStudio | *Optional fix.* Keeps fangs on the teeth when the mouth is edited with KKPE blendshapes or Timeline. | 1.0.1 |
 | [**EditFangs Head Fix**](EditFangsHeadFix/README.md) | KK, KKS | Outside the maker | *Optional fix.* Stops EditFangs from stretching and twisting fangs on modded heads. | 1.0.2 |
 
 The *optional fixes* only matter if you run into the specific problem each one describes. The other plugins do not need them. **StripTease2 Timeline** is only a stopgap for experimenting until StripTease2 supports Timeline itself.
@@ -61,7 +61,7 @@ The output goes to `bin/`. `sh build/package.sh <KK folder> <KKS folder> [KK Cha
 | [**Shader Swapper Null Fix**](ShaderSwapperNullFix/README.md#中文說明) | KK、KKS | 全部 | **選用修正。** 避免 Shader Swapper 在配件轉移後讓整套服裝的 Material Editor 貼圖消失。 | 1.0.0 |
 | [**KKUTS Clothes Redirect／KKUTSclothes Compat**](KKUTSClothesRedirect/README.md#中文說明) | KKS／KK | 全部 | **選用修正。** 讓使用 KKUTS 的服裝在 KK 和 KKS 之間搬移後看起來一樣，不必修改卡片。 | 1.0.0／1.1.0 |
 | [**StripTease2 Timeline**](StripTease2Timeline/README.md#中文說明) | KK、KKS | CharaStudio | ***實驗性、非官方。*** 讓 StripTease2（ziglo 製作）的服裝變形可以在 Timeline 做動畫：脫衣進度、身體遮罩、掉落軌道。**ziglo 已宣布未來的 StripTease2 會正式支援 Timeline**，推出後請改用官方版本。 | 0.5.0 **實驗性** |
-| [**KKPE Canine Link**](KKPECanineLink/README.md#中文說明) | KK、KKS | CharaStudio | **選用修正。** 用 KKPE 的 blendshape 或 Timeline 編輯嘴型時，讓八重齒緊貼牙齒。 | 1.0.0 |
+| [**KKPE Canine Link**](KKPECanineLink/README.md#中文說明) | KK、KKS | CharaStudio | **選用修正。** 用 KKPE 的 blendshape 或 Timeline 編輯嘴型時，讓八重齒緊貼牙齒。 | 1.0.1 |
 | [**EditFangs Head Fix**](EditFangsHeadFix/README.md#中文說明) | KK、KKS | maker 以外 | **選用修正。** 避免 EditFangs 把移植頭模的八重齒拉長扭曲。 | 1.0.2 |
 
 這些**選用修正**只有在遇到它們各自說明的問題時才需要，其他插件不依賴它們。**StripTease2 Timeline** 只是在 StripTease2 正式支援 Timeline 之前、供實驗使用的過渡方案。

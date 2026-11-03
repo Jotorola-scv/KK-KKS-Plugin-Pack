@@ -17,7 +17,7 @@ namespace KKPECanineLink
     public class KKPECanineLinkPlugin : BaseUnityPlugin
     {
         public const string GUID = "jotorola.kkpecaninelink";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
         private const string KKPEGuid = "com.joan6694.kkplugins.kkpe";
         private const int RefreshInterval = 60;
 
@@ -35,6 +35,10 @@ namespace KKPECanineLink
             public Mesh ToothMesh;
             public Mesh CanineMesh;
             public int[] ToothIndexByCanine;
+            public string[] CanineNames;
+            public bool[] GameDriven;
+            public float[] WeightsBeforeMirroring;
+            public bool Mirroring;
             public object ToothBlend;
             public object CanineBlend;
             public int NextRefresh;
@@ -69,14 +73,15 @@ namespace KKPECanineLink
         [HarmonyPatch(typeof(FaceBlendShape), "LateUpdate")]
         private static void FaceBlendShapeLateUpdatePostfix(FaceBlendShape __instance)
         {
-            if (!_enabled.Value)
+            Link link;
+            var known = _links.TryGetValue(__instance, out link);
+            if (!_enabled.Value && !(known && link.Mirroring))
                 return;
             var editors = _instances.GetValue(null) as IDictionary;
             if (editors == null || !editors.Contains(__instance))
                 return;
 
-            Link link;
-            if (!_links.TryGetValue(__instance, out link))
+            if (!known)
             {
                 link = new Link();
                 _links[__instance] = link;
@@ -88,9 +93,24 @@ namespace KKPECanineLink
                 link.NextRefresh = Time.frameCount + RefreshInterval;
                 Refresh(link, __instance, editors[__instance]);
             }
-            if (link.ToothIndexByCanine == null || !HasOverrides(link.ToothBlend, link.Tooth) || HasOverrides(link.CanineBlend, link.Canine))
+            if (link.ToothIndexByCanine == null)
                 return;
 
+            var canineOverrides = Overrides(link.CanineBlend, link.Canine);
+            if (_enabled.Value && Overrides(link.ToothBlend, link.Tooth) != null && canineOverrides == null)
+                Mirror(link);
+            else if (link.Mirroring)
+                StopMirroring(link, canineOverrides);
+        }
+
+        private static void Mirror(Link link)
+        {
+            if (!link.Mirroring)
+            {
+                for (var i = 0; i < link.WeightsBeforeMirroring.Length; i++)
+                    link.WeightsBeforeMirroring[i] = link.Canine.GetBlendShapeWeight(i);
+                link.Mirroring = true;
+            }
             var map = link.ToothIndexByCanine;
             for (var i = 0; i < map.Length; i++)
             {
@@ -102,26 +122,45 @@ namespace KKPECanineLink
             }
         }
 
+        // The game rewrites the shapes its mouth patterns use every frame, but never touches the others, so a mirrored
+        // value would stay on them for good. While Canines is overridden KKPE owns its own shapes, and can still restore
+        // a weight it recorded during mirroring, so this keeps running until that override is gone.
+        private static void StopMirroring(Link link, IDictionary canineOverrides)
+        {
+            for (var i = 0; i < link.GameDriven.Length; i++)
+            {
+                if (link.GameDriven[i] || (canineOverrides != null && canineOverrides.Contains(link.CanineNames[i])))
+                    continue;
+                if (link.Canine.GetBlendShapeWeight(i) != link.WeightsBeforeMirroring[i])
+                    link.Canine.SetBlendShapeWeight(i, link.WeightsBeforeMirroring[i]);
+            }
+            if (canineOverrides == null)
+                link.Mirroring = false;
+        }
+
         private static bool IsValid(Link link)
         {
             return link.Tooth != null && link.Canine != null && link.Tooth.sharedMesh == link.ToothMesh && link.Canine.sharedMesh == link.CanineMesh
                 && link.ToothBlend != null && ReferenceEquals(_renderer.GetValue(link.ToothBlend), link.Tooth);
         }
 
-        private static bool HasOverrides(object blend, SkinnedMeshRenderer renderer)
+        // The renderer's KKPE overrides, or null when it has none.
+        private static IDictionary Overrides(object blend, SkinnedMeshRenderer renderer)
         {
             if (blend == null || !ReferenceEquals(_renderer.GetValue(blend), renderer))
-                return false;
-            var dirty = _dirtyBlends.GetValue(blend) as ICollection;
-            return dirty != null && dirty.Count > 0;
+                return null;
+            var dirty = _dirtyBlends.GetValue(blend) as IDictionary;
+            return dirty != null && dirty.Count > 0 ? dirty : null;
         }
 
         private static void Refresh(Link link, FaceBlendShape face, object editor)
         {
+            var previousCanine = link.Canine;
             link.Tooth = null;
             link.Canine = null;
             link.ToothBlend = null;
             link.CanineBlend = null;
+            FBSTargetInfo canineTarget = null;
             foreach (var target in face.MouthCtrl.FBSTarget)
             {
                 var renderer = target.GetSkinnedMeshRenderer();
@@ -131,19 +170,36 @@ namespace KKPECanineLink
                 if (renderer.name == "cf_O_tooth" || firstShape.StartsWith("kuti_ha."))
                     link.Tooth = renderer;
                 else if (renderer.name == "cf_O_canine" || firstShape.StartsWith("kuti_yaeba."))
+                {
                     link.Canine = renderer;
+                    canineTarget = target;
+                }
             }
             if (link.Tooth == null || link.Canine == null)
             {
                 link.ToothIndexByCanine = null;
+                link.Mirroring = false;
                 return;
             }
+            // A new renderer means a newly loaded head, which has no mirrored weights on it.
+            if (link.Canine != previousCanine)
+                link.Mirroring = false;
 
             if (link.Tooth.sharedMesh != link.ToothMesh || link.Canine.sharedMesh != link.CanineMesh || link.ToothIndexByCanine == null)
             {
                 link.ToothMesh = link.Tooth.sharedMesh;
                 link.CanineMesh = link.Canine.sharedMesh;
                 link.ToothIndexByCanine = BuildMap(link.ToothMesh, link.CanineMesh);
+                var count = link.CanineMesh.blendShapeCount;
+                link.CanineNames = new string[count];
+                for (var i = 0; i < count; i++)
+                    link.CanineNames[i] = link.CanineMesh.GetBlendShapeName(i);
+                link.GameDriven = BuildGameDriven(canineTarget, count);
+                if (link.WeightsBeforeMirroring == null || link.WeightsBeforeMirroring.Length != count)
+                {
+                    link.WeightsBeforeMirroring = new float[count];
+                    link.Mirroring = false;
+                }
             }
 
             var blends = _blendRenderers.GetValue(editor) as IDictionary;
@@ -157,6 +213,19 @@ namespace KKPECanineLink
                 else if (ReferenceEquals(renderer, link.Canine))
                     link.CanineBlend = blend;
             }
+        }
+
+        private static bool[] BuildGameDriven(FBSTargetInfo target, int count)
+        {
+            var driven = new bool[count];
+            foreach (var pattern in target.PtnSet)
+            {
+                if (pattern.Close >= 0 && pattern.Close < count)
+                    driven[pattern.Close] = true;
+                if (pattern.Open >= 0 && pattern.Open < count)
+                    driven[pattern.Open] = true;
+            }
+            return driven;
         }
 
         // Stock meshes pair by pattern name; the one stock mismatch (ha00_e_s_op / y00_e_l_op) sits at the same index.

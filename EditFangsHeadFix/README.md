@@ -23,7 +23,8 @@ Download `KK_EditFangsHeadFix.dll` (Koikatsu / Koikatsu Party) or `KKS_EditFangs
 ## Tested in game
 
 - **KKS:** the fix was confirmed on Head Mod2 in CharaStudio with 1.0.1.
-- **KK:** the three heads above have the same vertex order as the stock head, so the visible bug was not reproduced there. Version 1.0.2 fixes a warning seen in the KK log (see below) and has not been run in either game yet.
+- **KK:** the heads tested have the same vertex order as the stock head, so the visible bug was not reproduced there.
+- **1.0.2:** runs in both games' CharaStudio without warnings, including the KK head that triggered the warning below.
 
 1.0.2 also handles heads whose two lowest fang vertices are not at exactly the same height. EditFangs throws on those, which showed up as `Could not re-read the fang vertices` in the log.
 
@@ -49,7 +50,7 @@ Download `KK_EditFangsHeadFix.dll` (Koikatsu / Koikatsu Party) or `KKS_EditFangs
 
 **安裝：** 從 [Releases](https://github.com/Jotorola-scv/KK-KKS-Plugin-Pack/releases) 下載 `KK_EditFangsHeadFix.dll`（戀活）或 `KKS_EditFangsHeadFix.dll`（戀活 Sunshine），放進 `BepInEx/plugins`。需要 BepInEx 5 和 EditFangs（測試版本 KKS_EditFangs 1.1.1、KK_EditFangs 1.1.2）。刪除 dll 即可解除安裝；等 EditFangs 本身修好後就可以移除。
 
-**遊戲內測試：** KKS 已用 1.0.1 在 CharaStudio 的 Head Mod2 上確認修正有效。KK 的這三顆頭頂點順序和原版相同，所以沒有重現這個外觀問題。1.0.2 修正了 KK log 裡的警告（有些頭最低的兩個八重齒頂點高度不完全相同，EditFangs 會出錯），還沒有在兩款遊戲裡實際跑過。
+**遊戲內測試：** KKS 已用 1.0.1 在 CharaStudio 的 Head Mod2 上確認修正有效。KK 的這三顆頭頂點順序和原版相同，所以沒有重現這個外觀問題。1.0.2 修正了 KK log 裡的警告（有些頭最低的兩個八重齒頂點高度不完全相同，EditFangs 會出錯），在兩款遊戲的 CharaStudio 裡都沒有再出現警告。
 
 ---
 
